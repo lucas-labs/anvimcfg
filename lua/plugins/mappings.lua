@@ -21,6 +21,8 @@ return {
           -- move current line up and down with alt + arrow up and down keys
           ["<A-Up>"] = { ":m .-2<CR>==", desc = "Move line up" },
           ["<A-Down>"] = { ":m .+1<CR>==", desc = "Move line down" },
+          -- Ctrl A : select all text in the current buffer
+          ["<C-a>"] = { "ggVG", desc = "Select all" },
         },
 
         -- configs for insert mode
@@ -29,14 +31,16 @@ return {
           ["<C-s>"] = { "<Esc>:w<CR>a", desc = "Save file" },
           -- make ctrl + q toggle insert mode
           ["<C-q>"] = { "<Esc>", desc = "Toggle insert mode" },
-          -- ctrl + z to undo, ctrl + y to redo
-          ["<C-z>"] = { "<Esc>u", desc = "Undo" },
-          ["<C-y>"] = { "<Esc><C-r>", desc = "Redo" },
+          -- ctrl + z to undo, ctrl + y to redo, then go back to insert mode
+          ["<C-z>"] = { "<Esc>u<CR>a", desc = "Undo" },
+          ["<C-y>"] = { "<Esc><C-r><CR>a", desc = "Redo" },
           -- ctrl + v to paste, then go back to insert mode
           ["<C-v>"] = { '<Esc>"+p<CR>a', desc = "Paste from clipboard" },
           -- move current line up and down with alt + arrow keys
           ["<A-Up>"] = { "<Esc>:m .-2<CR>==gi", desc = "Move line up" },
           ["<A-Down>"] = { "<Esc>:m .+1<CR>==gi", desc = "Move line down" },
+          -- Ctrl A : select all text in the current buffer, then go back to insert mode
+          ["<C-a>"] = { "<Esc>ggVG<CR>a", desc = "Select all" },
         },
 
         -- configs for visual mode
@@ -49,6 +53,9 @@ return {
           -- ctrl + c to copy selection, ctrl + x to cut selection
           ["<C-c>"] = { '"+y', desc = "Copy to clipboard" },
           ["<C-x>"] = { '"+d', desc = "Cut to clipboard" },
+
+          -- Ctrl + A : select all text
+          ["<C-a>"] = { "ggVG", desc = "Select all" },
         },
 
         -- configs for terminal mode

@@ -11,4 +11,5 @@ return {
   { import = "astrocommunity.completion.cmp-cmdline" },
   { import = "astrocommunity.completion.copilot-vim-cmp" },
   { import = "astrocommunity.colorscheme.monokai-pro-nvim" },
+  { import = "astrocommunity.markdown-and-latex.markview-nvim" },
 }
